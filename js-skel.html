@@ -87,15 +87,15 @@
             <!-- Set the ids of the buttons to "update" and "reset", respectively.
                 An id (or class name) is required for accessing HTML elements from JS code.
              -->
-            <button class="btn btn-primary" id="">Update</button>
-            <button class="btn btn-secondary" id="">Reset</button>
+            <button class="btn btn-primary" id="update">Update</button>
+            <button class="btn btn-secondary" id="reset">Reset</button>
         </div>
         <div class="text-center">
             <svg width="400" height="400">
                 <!-- Set the ids of the circles to "red-circle", "blue-circle", and "green-circle", respectively -->
-                <circle id="" cx="300" cy="300" r="5" fill="red"></circle>
-                <circle id="" cx="250" cy="100" r="5" fill="blue"></circle>
-                <circle id="" cx="150" cy="200" r="5" fill="green"></circle>
+                <circle id="red-circle" cx="300" cy="300" r="5" fill="red"></circle>
+                <circle id="blue-circle" cx="250" cy="100" r="5" fill="blue"></circle>
+                <circle id="green-circle" cx="150" cy="200" r="5" fill="green"></circle>
                 <line x1="30" x2="380" y1="350" y2="350" stroke="black" stroke-width="1"></line>
                 <line x1="30" x2="30" y1="20" y2="350" stroke="black" stroke-width="1"></line>
                 <text x="380" y="350" text-anchor="end" alignment-baseline="hanging">SepalLength</text>
@@ -106,17 +106,26 @@
 
     <script>
         // Select the corressponding element via document.querySelector
-        let red = document.querySelector("");
-        let blue = document.querySelector("");
-        let green = document.querySelector("");
-        let updateBtn = document.querySelector("");
-        let resetBtn = document.querySelector("");
+        let red = document.querySelector("#red-circle");
+        let blue = document.querySelector("#blue-circle");
+        let green = document.querySelector("#green-circle");
+        let updateBtn = document.querySelector("#update");
+        let resetBtn = document.querySelector("#reset");
 
         updateBtn.addEventListener("click", () => {
             // Set the fill color of the circles to red/blue/green, respectively.
             // Note that the fill attribute can be accessed by ".style.fill".
+            red.style.fill = "red"
+            blue.style.fill = "blue"
+            green.style.fill = "green"
         })
-
+        resetBtn.addEventListener("click", () => {
+            // Set the fill color of the circles to red/blue/green, respectively.
+            // Note that the fill attribute can be accessed by ".style.fill".
+            red.style.fill = "black"
+            blue.style.fill = "black"
+            green.style.fill = "black"
+        })
 
         // Add an event handler to resetBtn to change the colors to black when the button is clicked.
         // Can we change the colors using document.querySelectorAll and a loop?
